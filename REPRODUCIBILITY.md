@@ -107,7 +107,7 @@ Expected promotion-level results are in the immutable `reports/promotion_report.
 pytest
 ```
 
-The release source passed all 35 Python tests on the training host. Artifact fetching and manifest rehydration have additional focused tests in `tests/test_reproduction_tools.py`.
+The published release source passes all 37 Python tests on the original training host. Artifact fetching and manifest rehydration are covered by focused tests in `tests/test_reproduction_tools.py`.
 
 ## Security and competition boundary
 

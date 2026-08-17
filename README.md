@@ -1,5 +1,7 @@
 # AI Blink validation pipeline
 
+[![tests](https://github.com/Sekinal/local-ai-image-signal-training/actions/workflows/test.yml/badge.svg)](https://github.com/Sekinal/local-ai-image-signal-training/actions/workflows/test.yml)
+
 > **August 2026 release:** the exact source tree, pinned environment, recovery inventory, and commands for the promoted low-quality Community Forensics detector are documented in [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md). Large immutable artifacts live in the linked Hugging Face revision; this repository intentionally does not commit model checkpoints or source-licensed image bytes to Git.
 
 This repository starts with the measurement system, before model fine-tuning. Its job is to
