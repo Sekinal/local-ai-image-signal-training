@@ -1,0 +1,16 @@
+.venv/
+.playwright-cli/
+.pytest_cache/
+.coverage
+**/__pycache__/
+*.py[cod]
+data/
+*.partial
+artifacts/dinov3/**/head.npz
+artifacts/model_eval/**/head.npz
+artifacts/finetune_tournament/**/pilot.pt
+PLAN.md
+SESSION_HANDOFF.md
+artifacts/
+release/
+reproduction/downloads/

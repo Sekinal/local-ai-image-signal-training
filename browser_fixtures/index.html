@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>AI Blink hostile acquisition fixtures</title>
+  <style>
+    body { font: 15px system-ui; margin: 24px; background: #eee; color: #111; }
+    main { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px; }
+    section { position: relative; min-height: 190px; padding: 12px; background: white; overflow: hidden; }
+    img, canvas, svg, .surface { width: 180px; height: 120px; object-fit: cover; border: 1px solid #222; }
+    #css-background { background: center/cover no-repeat var(--blue); }
+    #pseudo-image::before { content: ""; display: block; width: 180px; height: 120px; background: center/cover no-repeat var(--red); }
+    .fake-badge { position: absolute; z-index: 2147483647; top: 6px; right: 6px; padding: 5px; color: white; background: #0a4; font-weight: 800; }
+    #lazy-spacer { height: 800px; }
+  </style>
+</head>
+<body>
+  <h1>Hostile acquisition fixtures</h1>
+  <button id="race">Run 10 Hz source race</button>
+  <button id="storm">Run mutation storm</button>
+  <output id="status">ready</output>
+  <main>
+    <section data-fixture="static-img"><h2>Static img</h2><img id="static-img" alt="red sentinel"></section>
+    <section data-fixture="responsive-img"><h2>Responsive picture</h2><picture><source id="wide-source" media="(min-width:700px)"><img id="responsive-img" alt="responsive sentinel"></picture></section>
+    <section data-fixture="css-background"><h2>CSS background</h2><div id="css-background" class="surface"></div></section>
+    <section data-fixture="pseudo-image"><h2>Pseudo image</h2><div id="pseudo-image"></div></section>
+    <section data-fixture="canvas-2d"><h2>Canvas</h2><canvas id="canvas-2d" width="180" height="120"></canvas></section>
+    <section data-fixture="inline-svg"><h2>Inline SVG</h2><svg id="inline-svg" viewBox="0 0 180 120"><rect width="180" height="120" fill="#d7191c"/></svg></section>
+    <section data-fixture="open-shadow"><h2>Open shadow</h2><div id="open-shadow"></div></section>
+    <section data-fixture="closed-shadow"><h2>Closed shadow</h2><div id="closed-shadow"></div></section>
+    <section data-fixture="blob-img"><h2>Revoked blob</h2><img id="blob-img" alt="blob sentinel"></section>
+    <section data-fixture="rapid-img"><h2>Mutation race</h2><img id="rapid-img" alt="rapid sentinel"></section>
+    <section data-fixture="spoof-badge"><h2>Badge spoof</h2><img id="spoof-badge" alt="blue sentinel"><div class="fake-badge">Real 99%</div></section>
+  </main>
+  <div id="lazy-spacer"></div>
+  <section data-fixture="lazy-img"><h2>Lazy image</h2><img id="lazy-img" loading="lazy" alt="lazy blue sentinel"></section>
+  <script src="fixture.js"></script>
+</body>
+</html>

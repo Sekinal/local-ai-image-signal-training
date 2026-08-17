@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aiblink-validation"
+version = "0.1.0"
+description = "Leakage-resistant validation pipeline for in-browser AI image detection"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=2.0,<3",
+  "Pillow>=11,<13",
+  "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+inference = [
+  "huggingface-hub>=0.30,<2",
+  "safetensors>=0.5,<1",
+  "timm>=1.0,<2",
+  "torch>=2.5,<3",
+  "torchvision>=0.20,<1",
+]
+test = ["pytest>=8,<10", "pytest-cov>=6,<8"]
+data = ["pyarrow>=18,<24"]
+onnx = ["onnxruntime-gpu>=1.24,<2"]
+training = [
+  "huggingface-hub>=0.30,<2",
+  "onnx>=1.17,<2",
+  "pyarrow>=18,<24",
+  "safetensors>=0.5,<1",
+  "timm>=1.0,<2",
+  "torch>=2.5,<3",
+  "torchvision>=0.20,<1",
+]
+
+[project.scripts]
+aiblink-val = "aiblink_validation.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aiblink_validation"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["aiblink_validation"]

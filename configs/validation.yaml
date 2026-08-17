@@ -1,0 +1,23 @@
+threshold: 0.65
+calibration:
+  candidates: [identity, bias, platt]
+  select_by: logo_balanced_accuracy
+  min_groups: 3
+  min_samples_per_class: 20
+  views: [clean, web, hard]
+evaluation:
+  views: [clean, web, hard]
+  primary_view: pooled
+  bootstrap_replicates: 2000
+  bootstrap_seed: 323
+  confidence: 0.95
+  min_slice_size: 20
+gates:
+  fail_on_exact_overlap: true
+  fail_on_near_overlap: true
+  phash_distance: 4
+  require_hashes: true
+  require_all_views: true
+  min_test_per_class: 100
+  min_balanced_accuracy: 0.75
+  max_balanced_accuracy_ci_width: 0.08

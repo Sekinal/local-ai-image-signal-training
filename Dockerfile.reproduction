@@ -1,0 +1,21 @@
+FROM nvidia/cuda:13.0.2-cudnn-devel-ubuntu24.04
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PATH=/opt/aiblink-venv/bin:$PATH \
+    PYTHONUNBUFFERED=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      ca-certificates git jq python3.12 python3.12-venv \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /root/ai_blink
+COPY requirements-training-lock.txt pyproject.toml README.md ./
+RUN python3.12 -m venv /opt/aiblink-venv \
+    && python -m pip install --upgrade pip \
+    && python -m pip install -r requirements-training-lock.txt
+
+COPY . .
+RUN python -m pip install --no-deps -e . && pytest
+
+VOLUME ["/data/ai_blink"]
+CMD ["bash"]

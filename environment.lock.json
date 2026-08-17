@@ -1,0 +1,24 @@
+{
+  "captured_at_utc": "2026-08-17T04:00:00Z",
+  "host": {
+    "os": "Ubuntu 24.04",
+    "kernel": "Linux 6.17.0-1019-aws x86_64",
+    "gpu": "NVIDIA L40S",
+    "nvidia_driver": "595.71.05",
+    "cuda_runtime": "13.0",
+    "cudnn_runtime": "9.20.0"
+  },
+  "python": {
+    "version": "3.12.3",
+    "compiler": "GCC 13.3.0"
+  },
+  "training": {
+    "precision": "CUDA bfloat16 autocast",
+    "tf32": true,
+    "torch_compile_mode": "reduce-overhead",
+    "cudnn_benchmark": true,
+    "determinism_note": "Seeded sampling and augmentation are reproducible; compiled GPU kernels are not guaranteed bit-identical across drivers or hardware."
+  },
+  "artifacts_revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+  "extension_commit": "bcadf67ecf4fd19364d9c43401b1a42b1a8ace3b"
+}

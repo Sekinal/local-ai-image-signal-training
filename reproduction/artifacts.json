@@ -1,0 +1,146 @@
+{
+  "protocol": "aiblink-reproduction-artifacts/0.1.0",
+  "artifacts": [
+    {
+      "profile": "deployment",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "community_forensics_low_quality_fp16.onnx",
+      "destination": "deployment/community_forensics_low_quality_fp16.onnx",
+      "sha256": "88ca8e90e5ab33e6e13887124614e14ba96d7c8cc9ecb21505b63cdc6549ff17",
+      "bytes": 43778110
+    },
+    {
+      "profile": "deployment",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "model.safetensors",
+      "destination": "deployment/model.safetensors",
+      "sha256": "c09206330c97a759ff4d38cc9a05617928525ecdc0a8ebc1552ffc361bae1791",
+      "bytes": 87261764
+    },
+    {
+      "profile": "deployment",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "calibrator.json",
+      "destination": "deployment/calibrator.json",
+      "sha256": "d2992b477fb33ea911b5b66e025558b715cc847755382fd60b14321bb7c84d00",
+      "bytes": 338
+    },
+    {
+      "profile": "deployment",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "reports/promotion_report.json",
+      "destination": "reports/promotion_report.json",
+      "sha256": "c58589c62a6bbb9d61cbffc00ed3faff58f79d7ee188e3e1108de5100a598900",
+      "bytes": 11930
+    },
+    {
+      "profile": "deployment",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "reports/final_report.json",
+      "destination": "reports/final_report.json",
+      "sha256": "3d3f85e364bbd252f9276e7446084929845cf9ec0f46690b19c52fa4ec422d1b",
+      "bytes": 7343
+    },
+    {
+      "profile": "deployment",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "reports/redteam_report.json",
+      "destination": "reports/redteam_report.json",
+      "sha256": "818e89f5dc35bbbcf1b11ba2dc36fc0909dbefa59ef4d2598d85c5dce99a0eb6",
+      "bytes": 47749
+    },
+    {
+      "profile": "resume",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "checkpoints/frontier_initial_best.pt",
+      "destination": "resume/frontier_initial_best.pt",
+      "sha256": "e3259da45b0791ef9f43aa07ceff95ccd590c14c98cb3bcdc573bad23f06de1b",
+      "bytes": 349295121
+    },
+    {
+      "profile": "resume",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "checkpoints/low_quality_selected_last.pt",
+      "destination": "resume/low_quality_selected_last.pt",
+      "sha256": "fbe38867f4873882a04003e9f598b07735d183edfe5843d07ebbbc01d5ba166c",
+      "bytes": 349291089
+    },
+    {
+      "profile": "data",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "reproduction/manifests/combined_manifest_inventory.csv.gz",
+      "destination": "data/combined_manifest_inventory.csv.gz",
+      "sha256": "bca27fd7e7e7956f17aec91f5a49f52b9ab899e271cdbd20f213a5c3b0d24088",
+      "bytes": 8337788
+    },
+    {
+      "profile": "data",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "reproduction/manifests/combined_manifest_original.csv.gz",
+      "destination": "data/combined_manifest_original.csv.gz",
+      "sha256": "8d09d252025226a15cd40b9b3f3b08c254c77e00d5c50c11c08c7519c717a979",
+      "bytes": 9191588,
+      "decompressed_sha256": "af629187fca31ab2f4f7f4c81ea3a761c13ea7cb8d4ee8a9bb9e7bd8e1eb6f36"
+    },
+    {
+      "profile": "data",
+      "kind": "huggingface",
+      "repo_type": "model",
+      "repo": "Thermostatic/community-forensics-low-quality-detector-2026-08",
+      "revision": "6fca3e7f4365363ee5c0fdb1a17d73917d54413d",
+      "file": "reproduction/manifests/original_manifest_proof.json",
+      "destination": "data/original_manifest_proof.json",
+      "sha256": "21dc5e1b8a1725ca4dd1390a7f6276e2066a2fa49d1e45f3983edcec052ec4b8",
+      "bytes": 1221
+    },
+    {
+      "profile": "private",
+      "kind": "huggingface",
+      "repo_type": "dataset",
+      "repo": "Thermostatic/openrouter-90-detector-diagnostic-private",
+      "revision": "3ba3b70d7da90bc95c5ac99b318d6a5d53e94737",
+      "file": "data/openrouter_90.parquet",
+      "destination": "private/openrouter_90.parquet",
+      "sha256": "dc3392e403c7f2314c63c143227c78226c40d1cba99d3a1d5757ee5b522bbc09",
+      "bytes": 90608340
+    },
+    {
+      "profile": "extension",
+      "kind": "url",
+      "url": "https://github.com/Sekinal/local-ai-image-signal/releases/download/v1.1.0/local-ai-image-signal-1.1.0-chrome.zip",
+      "destination": "extension/local-ai-image-signal-1.1.0-chrome.zip",
+      "sha256": "726eadb9a431b843e5d7b7bad9472ea15d5d4b717db1be6c9064bfbdddd1c287",
+      "bytes": 46440158
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+version: 1
+seed: 323
+profiles:
+  gate:
+    - clean
+    - resize_256
+    - resize_192
+    - resize_128
+    - resize_96
+    - resize_64
+    - resize_48
+    - resize_32
+    - lowq_128_jpeg30
+    - lowq_96_jpeg20
+    - lowq_64_multihop
+    - lowq_48_multihop
+cases:
+  clean: {family: clean, severity: control, operations: []}
+  resize_256: {family: resolution, severity: low, operations: [{op: resize_short, pixels: 256, filter: lanczos}]}
+  resize_192: {family: resolution, severity: medium, operations: [{op: resize_short, pixels: 192, filter: lanczos}]}
+  resize_128: {family: resolution, severity: high, operations: [{op: resize_short, pixels: 128, filter: lanczos}]}
+  resize_96: {family: resolution, severity: high, operations: [{op: resize_short, pixels: 96, filter: bicubic}]}
+  resize_64: {family: resolution, severity: critical, operations: [{op: resize_short, pixels: 64, filter: bicubic}]}
+  resize_48: {family: resolution, severity: critical, operations: [{op: resize_short, pixels: 48, filter: bilinear}]}
+  resize_32: {family: resolution, severity: critical, operations: [{op: resize_short, pixels: 32, filter: bilinear}]}
+  lowq_128_jpeg30: {family: low_quality, severity: high, operations: [{op: resize_short, pixels: 128, filter: lanczos}, {op: jpeg, quality: 30, subsampling: 2}]}
+  lowq_96_jpeg20: {family: low_quality, severity: critical, operations: [{op: resize_short, pixels: 96, filter: bicubic}, {op: jpeg, quality: 20, subsampling: 2}]}
+  lowq_64_multihop: {family: low_quality, severity: critical, operations: [{op: resize_short, pixels: 64, filter: bicubic}, {op: jpeg, quality: 35, subsampling: 2}, {op: webp, quality: 40}]}
+  lowq_48_multihop: {family: low_quality, severity: critical, operations: [{op: resize_short, pixels: 48, filter: bilinear}, {op: jpeg, quality: 25, subsampling: 2}, {op: webp, quality: 30}]}
+gates:
+  min_low_quality_macro_balanced_accuracy_gain: 0.05
+  min_recent_positive_recall_gain: 0.05
+  max_clean_balanced_accuracy_regression: 0.01

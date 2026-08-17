@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "fixtures": {
+    "static-img": {"kind": "img", "required_state": "scored", "sentinel": "red"},
+    "responsive-img": {"kind": "picture", "required_state": "scored", "sentinel": "viewport-dependent"},
+    "lazy-img": {"kind": "img", "required_state": "scored", "sentinel": "blue"},
+    "css-background": {"kind": "css-background", "required_state": "scored", "sentinel": "blue"},
+    "pseudo-image": {"kind": "css-pseudo", "required_state": "scored", "sentinel": "red"},
+    "canvas-2d": {"kind": "canvas", "required_state": "scored", "sentinel": "blue"},
+    "inline-svg": {"kind": "svg", "required_state": "scored", "sentinel": "red"},
+    "open-shadow": {"kind": "shadow-open", "required_state": "scored", "sentinel": "blue"},
+    "closed-shadow": {"kind": "shadow-closed", "allowed_states": ["scored", "unsupported"], "sentinel": "red"},
+    "blob-img": {"kind": "blob", "required_state": "scored", "sentinel": "blue"},
+    "rapid-img": {"kind": "mutation-race", "required_state": "scored", "sentinel": "latest-generation"},
+    "spoof-badge": {"kind": "ui-spoof", "required_state": "scored", "sentinel": "blue"}
+  },
+  "invariants": [
+    "zero stale generation bindings",
+    "zero silent omissions",
+    "page badge never authoritative",
+    "normal foreground candidate completes during mutation storm"
+  ]
+}

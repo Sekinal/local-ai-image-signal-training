@@ -1,0 +1,93 @@
+version: 1
+seed: 323
+profiles:
+  smoke:
+    - clean
+    - jpeg_q75
+    - resize_128
+    - webp_q50
+    - blur_1
+    - crop_50
+    - multi_hop_3
+    - screenshot_frame
+  core:
+    - clean
+    - jpeg_q95
+    - jpeg_q75
+    - jpeg_q50
+    - jpeg_q30
+    - jpeg_q75_x3
+    - jpeg_q60_x6
+    - webp_q70
+    - webp_q50
+    - resize_256
+    - resize_128
+    - resize_96
+    - down_up_025
+    - nearest_025
+    - blur_07
+    - blur_1
+    - noise_3
+    - noise_5
+    - denoise_sharpen
+    - crop_75
+    - crop_50
+    - crop_25
+    - pad_2x
+    - overlay_10
+    - overlay_25
+    - composite_25
+    - composite_10
+    - composite_05
+    - screenshot_frame
+    - video_frame_sim
+    - moire_recapture_sim
+    - multi_hop_3
+    - multi_hop_6
+  adaptive:
+    - clean
+    - pgd_linf_1_255
+    - pgd_linf_2_255
+    - pgd_linf_4_255
+cases:
+  clean: {family: clean, severity: control, operations: []}
+  jpeg_q95: {family: codec, severity: low, operations: [{op: jpeg, quality: 95, subsampling: 2}]}
+  jpeg_q75: {family: codec, severity: medium, operations: [{op: jpeg, quality: 75, subsampling: 2}]}
+  jpeg_q50: {family: codec, severity: high, operations: [{op: jpeg, quality: 50, subsampling: 2}]}
+  jpeg_q30: {family: codec, severity: critical, operations: [{op: jpeg, quality: 30, subsampling: 2}]}
+  jpeg_q75_x3: {family: multi_hop, severity: high, operations: [{op: jpeg, quality: 75, subsampling: 2, generations: 3}]}
+  jpeg_q60_x6: {family: multi_hop, severity: critical, operations: [{op: jpeg, quality: 60, subsampling: 2, generations: 6}]}
+  webp_q70: {family: codec, severity: medium, operations: [{op: webp, quality: 70}]}
+  webp_q50: {family: codec, severity: high, operations: [{op: webp, quality: 50}]}
+  resize_256: {family: resolution, severity: medium, operations: [{op: resize_short, pixels: 256, filter: lanczos}]}
+  resize_128: {family: resolution, severity: high, operations: [{op: resize_short, pixels: 128, filter: lanczos}]}
+  resize_96: {family: resolution, severity: critical, operations: [{op: resize_short, pixels: 96, filter: bicubic}]}
+  down_up_025: {family: resampling, severity: high, operations: [{op: scale_cycle, scale: 0.25, filter: lanczos}]}
+  nearest_025: {family: resampling, severity: high, operations: [{op: scale_cycle, scale: 0.25, filter: nearest}]}
+  blur_07: {family: filtering, severity: medium, operations: [{op: gaussian_blur, radius: 0.7}]}
+  blur_1: {family: filtering, severity: high, operations: [{op: gaussian_blur, radius: 1.0}]}
+  noise_3: {family: filtering, severity: medium, operations: [{op: gaussian_noise, sigma: 3}]}
+  noise_5: {family: filtering, severity: high, operations: [{op: gaussian_noise, sigma: 5}]}
+  denoise_sharpen: {family: enhancement, severity: high, operations: [{op: median, size: 3}, {op: unsharp, radius: 1.5, percent: 160, threshold: 2}]}
+  crop_75: {family: crop, severity: medium, operations: [{op: crop, retained: 0.75}]}
+  crop_50: {family: crop, severity: high, operations: [{op: crop, retained: 0.50}]}
+  crop_25: {family: crop, severity: critical, operations: [{op: crop, retained: 0.25}]}
+  pad_2x: {family: dilution, severity: high, operations: [{op: pad, canvas_scale: 2.0}]}
+  overlay_10: {family: overlay, severity: medium, operations: [{op: overlay, coverage: 0.10}]}
+  overlay_25: {family: overlay, severity: high, operations: [{op: overlay, coverage: 0.25}]}
+  composite_25: {family: partial_composite, severity: high, operations: [{op: composite, foreground_fraction: 0.25}]}
+  composite_10: {family: partial_composite, severity: critical, operations: [{op: composite, foreground_fraction: 0.10}]}
+  composite_05: {family: partial_composite, severity: critical, operations: [{op: composite, foreground_fraction: 0.05}]}
+  screenshot_frame: {family: dilution, severity: high, operations: [{op: screenshot_frame, canvas_scale: 1.5}, {op: jpeg, quality: 75, subsampling: 2}]}
+  video_frame_sim: {family: video, severity: high, operations: [{op: resize_short, pixels: 512, filter: bilinear}, {op: jpeg, quality: 45, subsampling: 2}, {op: gaussian_blur, radius: 0.35}]}
+  moire_recapture_sim: {family: recapture_sim, severity: high, operations: [{op: moire, amplitude: 5, period: 5.5}, {op: perspective, magnitude: 0.025}, {op: jpeg, quality: 70, subsampling: 2}]}
+  multi_hop_3: {family: multi_hop, severity: critical, operations: [{op: scale, factor: 0.82, filter: bilinear}, {op: jpeg, quality: 72, subsampling: 2}, {op: scale, factor: 0.88, filter: bicubic}, {op: webp, quality: 65}, {op: jpeg, quality: 60, subsampling: 2}]}
+  multi_hop_6: {family: multi_hop, severity: critical, operations: [{op: scale, factor: 0.82, filter: bilinear}, {op: jpeg, quality: 75, subsampling: 2}, {op: scale, factor: 0.85, filter: bicubic}, {op: webp, quality: 65}, {op: gaussian_blur, radius: 0.4}, {op: jpeg, quality: 55, subsampling: 2}, {op: scale, factor: 0.9, filter: lanczos}, {op: jpeg, quality: 45, subsampling: 2}]}
+  pgd_linf_1_255: {family: whitebox, severity: medium, operations: [{op: whitebox_pgd, epsilon: 1, steps: 10, restarts: 1}]}
+  pgd_linf_2_255: {family: whitebox, severity: high, operations: [{op: whitebox_pgd, epsilon: 2, steps: 10, restarts: 1}]}
+  pgd_linf_4_255: {family: whitebox, severity: critical, operations: [{op: whitebox_pgd, epsilon: 4, steps: 20, restarts: 2}]}
+gates:
+  min_worst_attack_balanced_accuracy: 0.75
+  min_critical_fake_recall: 0.60
+  max_clean_regression: 0.01
+  required_external_families: [physical_recapture, platform_laundering, generative_laundering, partial_composite]
